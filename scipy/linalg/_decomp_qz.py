@@ -36,11 +36,9 @@ def _select_function(sort, typ):
 def _qz(A, B, output='real', lwork=None, sort=None, overwrite_a=False,
         overwrite_b=False, check_finite=True):
     if sort is not None:
-        from warnings import warn
-        warn(FutureWarning, "Use ordqz instead. The sort keyword will be "
-             "removed in 0.14")
         # Disabled due to segfaults on win32, see ticket 1717.
-        raise ValueError("The 'sort' input of qz() has to be None. Use ordqz.")
+        raise ValueError("The 'sort' input of qz() has to be None and will be "
+                         "removed in 0.15. Use ordqz instead.")
 
     if output not in ['real', 'complex', 'r', 'c']:
         raise ValueError("argument must be 'real', or 'complex'")
