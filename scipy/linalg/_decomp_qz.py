@@ -150,11 +150,11 @@ def qz(A, B, output='real', lwork=None, sort=None, overwrite_a=False,
         may be passed that, given a eigenvalue, returns a boolean denoting
         whether the eigenvalue should be sorted to the top-left (True). For
         real matrix pairs, the sort function takes three real arguments
-        (alphar, alphai, beta). The eigenvalue x = (alphar + alphai*1j)/beta.
-        For complex matrix pairs or output='complex', the sort function
-        takes two complex arguments (alpha, beta). The eigenvalue
-        x = (alpha/beta).
-        Alternatively, string parameters may be used:
+        (alphar, alphai, beta). The eigenvalue
+        ``x = (alphar + alphai*1j)/beta``.  For complex matrix pairs or
+        output='complex', the sort function takes two complex arguments
+        (alpha, beta). The eigenvalue ``x = (alpha/beta)``.  Alternatively,
+        string parameters may be used:
 
             - 'lhp'   Left-hand plane (x.real < 0.0)
             - 'rhp'   Right-hand plane (x.real > 0.0)
@@ -215,7 +215,7 @@ def qz(A, B, output='real', lwork=None, sort=None, overwrite_a=False,
 
     See also
     --------
-    scipy.linalg.ordqz
+    ordqz
     """
     # output for real
     # AA, BB, sdim, alphar, alphai, beta, vsl, vsr, work, info
@@ -232,7 +232,7 @@ def ordqz(A, B, sort='lhp', output='real', overwrite_a=False,
     """
     QZ decomposition for a pair of matrices with reordering.
 
-    .. versionadded:: 0.14.0
+    .. versionadded:: 0.17.0
 
     Parameters
     ----------
@@ -256,14 +256,14 @@ def ordqz(A, B, sort='lhp', output='real', overwrite_a=False,
             - 'iuc'   Inside the unit circle (x*x.conjugate() < 1.0)
             - 'ouc'   Outside the unit circle (x*x.conjugate() > 1.0)
 
-    output : str {'real','complex'}
+    output : str {'real','complex'}, optional
         Construct the real or complex QZ decomposition for real matrices.
         Default is 'real'.
-    overwrite_a : bool
+    overwrite_a : bool, optional
         If True, the contents of A are overwritten.
-    overwrite_b : bool
+    overwrite_b : bool, optional
         If True, the contents of B are overwritten.
-    check_finite : boolean
+    check_finite : bool, optional
         If true checks the elements of `A` and `B` are finite numbers. If
         false does no checking and passes matrix through to
         underlying algorithm.
@@ -296,7 +296,7 @@ def ordqz(A, B, sort='lhp', output='real', overwrite_a=False,
 
     See also
     --------
-    scipy.linalg.qz
+    qz
     """
     #NOTE: should users be able to set these?
     lwork = None
